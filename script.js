@@ -105,31 +105,57 @@ function showMessage(){
 
 showMessage();
 
-// Carrusel de imágenes
-const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
-const nextButton = document.querySelector('.next');
-const prevButton = document.querySelector('.prev');
+// Carrusel mágico con autoplay y corazones
+const trackMagic = document.querySelector('.carousel-track');
+const slidesMagic = Array.from(trackMagic.children);
+const nextButtonMagic = document.querySelector('.next');
+const prevButtonMagic = document.querySelector('.prev');
+const heartsContainer = document.getElementById('hearts-container');
 
-let currentIndex = 0;
+let currentIndexMagic = 0;
 
-function updateSlidePosition() {
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+function updateSlideMagic() {
+    const slideWidth = slidesMagic[0].getBoundingClientRect().width;
+    trackMagic.style.transform = 'translateX(-' + slideWidth * currentIndexMagic + 'px)';
+    // Generar corazones al cambiar de imagen
+    for(let i=0;i<15;i++){
+        createHeart();
+    }
 }
 
-nextButton.addEventListener('click', () => {
-    currentIndex++;
-    if(currentIndex >= slides.length) currentIndex = 0;
-    updateSlidePosition();
+function createHeart(){
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random()*90 + 'vw';
+    heart.style.top = Math.random()*50 + 'vh';
+    heart.style.width = 15 + Math.random()*15 + 'px';
+    heart.style.height = heart.style.width;
+    heartsContainer.appendChild(heart);
+    setTimeout(() => heart.remove(), 1500);
+}
+
+// Botones
+nextButtonMagic.addEventListener('click', () => {
+    currentIndexMagic++;
+    if(currentIndexMagic >= slidesMagic.length) currentIndexMagic = 0;
+    updateSlideMagic();
 });
 
-prevButton.addEventListener('click', () => {
-    currentIndex--;
-    if(currentIndex < 0) currentIndex = slides.length - 1;
-    updateSlidePosition();
+prevButtonMagic.addEventListener('click', () => {
+    currentIndexMagic--;
+    if(currentIndexMagic < 0) currentIndexMagic = slidesMagic.length - 1;
+    updateSlideMagic();
 });
 
-window.addEventListener('resize', updateSlidePosition);
+// Autoplay cada 4 segundos
+setInterval(() => {
+    currentIndexMagic++;
+    if(currentIndexMagic >= slidesMagic.length) currentIndexMagic = 0;
+    updateSlideMagic();
+}, 4000);
 
-animate();
+window.addEventListener('resize', updateSlideMagic);
+
+// Inicializar
+updateSlideMagic();
+
