@@ -131,7 +131,7 @@ header, footer {
     color: white;
 }
 
-.hero .overlay, .content, .youtube-section, .gallery-section, .f1-section {
+.hero .overlay, .content, .youtube-section, .gallery-section {
     z-index: 1;
     position: relative;
 }
@@ -151,4 +151,64 @@ header, footer {
 
 .youtube-mini:hover {
     opacity: 1;
+}
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    max-width: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255, 120, 160, 0.4);
+}
+
+.carousel-track-container {
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    transition: 0.5s;
+}
+
+.carousel-slide img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+/* Botones */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 142, 184, 0.8);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(255, 142, 184, 1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
 }
