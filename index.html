@@ -9,13 +9,15 @@
 </head>
 <body>
 
-    <!-- Botón inicial para desbloquear sonido (necesario para YouTube) -->
+    <!-- Pantalla inicial -->
     <div id="start-audio" class="start-audio">
         💗 Toca aquí para activar la música 💗
     </div>
 
-    <!-- Botón de mute (no controla YouTube, solo estética opcional) -->
     <div class="music-toggle">🎵</div>
+
+    <!-- Fondo animado de flores -->
+    <canvas id="flower-canvas"></canvas>
 
     <header>
         <h1>Feliz Cumpleaños, Mi Amor 🌸💗</h1>
@@ -31,6 +33,82 @@
 
     <section class="content">
         <h2>Momentos que nos definen 💞</h2>
-        <p>
-            Casi dos años juntos, y mi vida se ha llenado de color rosa desde que llegaste.  
-            Monterrey, Cancún, CDMX… cada lugar tiene un pedacito de nuestr
+        <p>Casi dos años juntos, y mi vida se ha llenado de color rosa desde que llegaste. Monterrey, Cancún, CDMX… cada lugar tiene un pedacito de nuestro corazón.</p>
+
+        <h2>Lo que te hace única</h2>
+        <ul>
+            <li>🌸 Tu amor por las peonías</li>
+            <li>🍓 Las fresas, tan dulces como tú</li>
+            <li>💗 Tu pasión por el color rosa</li>
+            <li>✨ Tu estilo impecable y amor por la moda</li>
+            <li>🏎️ Tu emoción por la Fórmula 1</li>
+            <li>🎵 Tu energía Blackpink</li>
+        </ul>
+
+        <h2>Mi mensaje para ti</h2>
+        <p class="mensaje">
+            Aunque este año no puedo estar contigo físicamente en tu cumpleaños, quiero que recuerdes que:
+            <br><br>
+            <strong>Estamos juntos en nuestro corazón y en nuestros pensamientos.</strong>
+            <br><br>
+            Esto es solo un pequeño obstáculo, uno que vamos a superar como todo lo que hemos vivido juntos.
+            No falta mucho para volver a estar uno al lado del otro.
+            <br><br>
+            Te amo más de lo que puedo escribir aquí. 💗✨
+        </p>
+    </section>
+
+    <!-- YouTube Mini Player -->
+    <section class="youtube-section">
+        <h2>Tu canción 💗🎵</h2>
+        <div class="youtube-mini">
+            <iframe width="250" height="140"
+                src="https://www.youtube.com/embed/NCvJwzDQTBM?controls=1&modestbranding=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media">
+            </iframe>
+        </div>
+        <p style="text-align:center; color:#e94a8b;">Toca el botón de arriba para desbloquear el audio 💗</p>
+    </section>
+
+    <!-- Galería -->
+    <section class="gallery-section">
+        <h2>Nuestros recuerdos ✨</h2>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Foto 1">
+            <img src="https://images.unsplash.com/photo-1529952318298-03e4a6c51e3a" alt="Foto 2">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Foto 3">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" alt="Foto 4">
+        </div>
+        <p class="note">Puedes reemplazar estas imágenes por fotos de ustedes 💞</p>
+    </section>
+
+    <!-- Carta sorpresa -->
+    <section class="letter-section">
+        <h2>🎁 Tu carta sorpresa 💌</h2>
+        <div class="letter" id="letter">
+            <div class="letter-front">💌 Abre la carta 💌</div>
+            <div class="letter-inside">
+                <p>Mi amor, cada día contigo es un regalo. Aunque estemos separados hoy, pronto volveremos a abrazarnos. Te amo con todo mi corazón. 💗✨</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mensajes tipo chat -->
+    <section class="chat-section">
+        <h2>Mensajes para ti 💬</h2>
+        <div class="chat-box">
+            <div class="chat-message">Feliz cumpleaños, mi amor 💗</div>
+            <div class="chat-message">Gracias por llenar mi vida de color rosa 🌸</div>
+            <div class="chat-message">Te extraño y pienso en ti siempre 🍓</div>
+            <div class="chat-message">Muy pronto estaremos juntos 😘</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Con todo mi amor, por siempre — [Tu Nombre] 💗</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
