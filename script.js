@@ -4,11 +4,6 @@ startScreen.addEventListener("click", () => {
     startScreen.style.display = "none";
 });
 
-// Botón de música estético
-document.querySelector(".music-toggle").addEventListener("click", () => {
-    alert("La música se controla desde el reproductor de YouTube 💗");
-});
-
 // Carta sorpresa
 const letter = document.getElementById("letter");
 letter.addEventListener("click", () => {
@@ -51,8 +46,67 @@ function animate() {
 }
 
 animate();
-
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+// Partículas rosas al click
+document.body.addEventListener('click', (e) => {
+    for(let i=0;i<10;i++){
+        createParticle(e.clientX, e.clientY);
+    }
+});
+
+let particles = [];
+function createParticle(x, y){
+    particles.push({
+        x: x,
+        y: y,
+        size: Math.random()*5+3,
+        speedX: (Math.random()-0.5)*3,
+        speedY: (Math.random()-1.5)*3,
+        color: `rgba(255, ${100+Math.random()*100}, 200, 1)`,
+        life: 60
+    });
+}
+
+function animateParticles(){
+    for(let i=0;i<particles.length;i++){
+        let p = particles[i];
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.life--;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+        if(p.life<=0) particles.splice(i,1);
+    }
+    requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// Mensajes tipo chat secuenciales
+const chatBox = document.getElementById("chat-box");
+const messages = [
+    "Feliz cumpleaños, mi amor 💗",
+    "Gracias por llenar mi vida de color rosa 🌸",
+    "Te extraño y pienso en ti siempre 🍓",
+    "Muy pronto estaremos juntos 😘",
+    "Eres mi persona favorita 💖",
+    "Te amo más cada día 💗✨"
+];
+
+let i = 0;
+function showMessage(){
+    if(i >= messages.length) return;
+    const div = document.createElement("div");
+    div.classList.add("chat-message");
+    div.textContent = messages[i];
+    chatBox.appendChild(div);
+    i++;
+    setTimeout(showMessage, 2000); // 2s entre mensajes
+}
+
+showMessage();
