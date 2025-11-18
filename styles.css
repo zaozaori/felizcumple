@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #ffeef6;
+    color: #444;
+    overflow-x: hidden;
+}
+
+/* Música toggle */
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff8eb8;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #ffb6d9;
+    color: white;
+    animation: fadeIn 2s ease;
+}
+
+.hero {
+    background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
+    background-size: cover;
+    background-position: center;
+    height: 55vh;
+    position: relative;
+    animation: fadeIn 2s ease;
+}
+
+.overlay {
+    background: rgba(255, 182, 217, 0.45);
+    backdrop-filter: blur(3px);
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.content {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.content h2 {
+    color: #e94a8b;
+    margin-top: 30px;
+    animation: slideUp 1s ease;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #ffd3e8;
+    padding: 12px 18px;
+    border-radius: 12px;
+    margin: 10px 0;
+    font-size: 18px;
+    animation: fadeIn 1.5s ease;
+}
+
+.mensaje {
+    background: #fff1f8;
+    border-left: 5px solid #ff7bab;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 18px;
+    animation: fadeIn 2s ease;
+}
+
+/* Galería */
+.gallery-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 120, 160, 0.3);
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.note {
+    font-size: 14px;
+    color: #e94a8b;
+}
+
+/* F1 */
+.f1-section {
+    background: #ffe1f0;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+    position: relative;
+}
+
+.car {
+    width: 120px;
+    height: 40px;
+    background: #ff4f87;
+    border-radius: 20px;
+    margin: 20px auto 0 auto;
+    animation: drive 3s infinite linear;
+}
+
+@keyframes drive {
+    0% { transform: translateX(-200px); }
+    100% { transform: translateX(200px); }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #ffb6d9;
+    color: white;
+    margin-top: 40px;
+}
