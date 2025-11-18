@@ -6,7 +6,28 @@ body {
     overflow-x: hidden;
 }
 
-/* Música toggle */
+/* Pantalla inicial */
+.start-audio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 182, 217, 0.85);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 1000;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Icono de música */
 .music-toggle {
     position: fixed;
     top: 20px;
@@ -84,6 +105,28 @@ ul li {
     animation: fadeIn 2s ease;
 }
 
+/* YouTube Mini */
+.youtube-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.youtube-mini {
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0.85;
+    transition: 0.3s;
+}
+
+.youtube-mini iframe {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 120, 160, 0.4);
+}
+
+.youtube-mini:hover {
+    opacity: 1;
+}
+
 /* Galería */
 .gallery-section {
     text-align: center;
@@ -154,24 +197,3 @@ footer {
     color: white;
     margin-top: 40px;
 }
-
-.start-audio {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 182, 217, 0.85);
-    backdrop-filter: blur(6px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    z-index: 1000;
-    text-align: center;
-    padding: 20px;
-}
-
