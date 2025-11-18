@@ -1,26 +1,11 @@
-let music = document.getElementById("bg-music");
-let toggle = document.querySelector(".music-toggle");
+// Pantalla inicial para permitir sonido
 let startScreen = document.getElementById("start-audio");
-let playing = false;
 
-// El usuario inicia la música con un toque/click
 startScreen.addEventListener("click", () => {
-    music.play().then(() => {
-        playing = true;
-        toggle.textContent = "🔇";
-        startScreen.style.display = "none";
-    });
+    startScreen.style.display = "none";
 });
 
-// Control manual del botón de música
-function toggleMusic() {
-    if (playing) {
-        music.pause();
-        toggle.textContent = "🔊";
-    } else {
-        music.play();
-        toggle.textContent = "🔇";
-    }
-    playing = !playing;
-}
-
+// Botón de música estético (no controla YouTube)
+document.querySelector(".music-toggle").addEventListener("click", () => {
+    alert("La música se controla desde el reproductor de YouTube 💗");
+});
