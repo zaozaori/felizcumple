@@ -42,34 +42,30 @@ for(let i=0; i<70; i++) flowers.push(new Flower());
 function animate() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     flowers.forEach(f => { f.update(); f.draw(); });
+    animateParticles();
     requestAnimationFrame(animate);
 }
 
-animate();
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
 
 // Partículas rosas al click
+let particles = [];
 document.body.addEventListener('click', (e) => {
     for(let i=0;i<10;i++){
-        createParticle(e.clientX, e.clientY);
+        particles.push({
+            x: e.clientX,
+            y: e.clientY,
+            size: Math.random()*5+3,
+            speedX: (Math.random()-0.5)*3,
+            speedY: (Math.random()-1.5)*3,
+            color: `rgba(255, ${100+Math.random()*100}, 200, 1)`,
+            life: 60
+        });
     }
 });
-
-let particles = [];
-function createParticle(x, y){
-    particles.push({
-        x: x,
-        y: y,
-        size: Math.random()*5+3,
-        speedX: (Math.random()-0.5)*3,
-        speedY: (Math.random()-1.5)*3,
-        color: `rgba(255, ${100+Math.random()*100}, 200, 1)`,
-        life: 60
-    });
-}
 
 function animateParticles(){
     for(let i=0;i<particles.length;i++){
@@ -83,9 +79,7 @@ function animateParticles(){
         ctx.fill();
         if(p.life<=0) particles.splice(i,1);
     }
-    requestAnimationFrame(animateParticles);
 }
-animateParticles();
 
 // Mensajes tipo chat secuenciales
 const chatBox = document.getElementById("chat-box");
@@ -106,7 +100,36 @@ function showMessage(){
     div.textContent = messages[i];
     chatBox.appendChild(div);
     i++;
-    setTimeout(showMessage, 2000); // 2s entre mensajes
+    setTimeout(showMessage, 2000);
 }
 
 showMessage();
+
+// Carrusel de imágenes
+const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
+
+let currentIndex = 0;
+
+function updateSlidePosition() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+}
+
+nextButton.addEventListener('click', () => {
+    currentIndex++;
+    if(currentIndex >= slides.length) currentIndex = 0;
+    updateSlidePosition();
+});
+
+prevButton.addEventListener('click', () => {
+    currentIndex--;
+    if(currentIndex < 0) currentIndex = slides.length - 1;
+    updateSlidePosition();
+});
+
+window.addEventListener('resize', updateSlidePosition);
+
+animate();
